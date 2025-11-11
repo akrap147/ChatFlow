@@ -1,3 +1,5 @@
+package Lv1_TCP_Connection;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -32,7 +34,7 @@ public class ClientServerTest {
     @Test
     void testMessageExchange() throws IOException {
         String response = client.sendMessage("hello Server");
-        assertEquals("hello Client", response);
+        assertEquals("hello Lv1_TCP_Connection.Client", response);
     }
 
 
