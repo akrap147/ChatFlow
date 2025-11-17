@@ -24,7 +24,6 @@ public class ClientHandler implements Runnable {
             in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             out = new PrintWriter(socket.getOutputStream(), true);
 
-            out.println("닉네임을 입력하시오");
             clientName = in.readLine();
             String message;
 
