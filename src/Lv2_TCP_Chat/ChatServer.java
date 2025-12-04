@@ -1,7 +1,5 @@
 package Lv2_TCP_Chat;
 
-import Lv1_TCP_Connection.Client;
-
 import java.io.*;
 import java.net.*;
 import java.util.Set;
