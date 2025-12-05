@@ -1,0 +1,68 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.3.5'
+    id 'io.spring.dependency-management' version '1.1.6'
+}
+
+group = 'com.chatflow'
+version = '1.0-SNAPSHOT'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Lv5용 Netty
+// https://mvnrepository.com/artifact/io.netty/netty-all
+    implementation 'io.netty:netty-all:4.2.7.Final'
+
+
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-websocket'
+
+
+    implementation 'org.springframework.boot:spring-boot-starter-amqp'
+
+    compileOnly 'org.projectlombok:lombok:1.18.34'
+    annotationProcessor 'org.projectlombok:lombok:1.18.34'
+
+    // JUnit 5 (이미 쓰는 버전에 맞춤)
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+// 지금 구조가 src/ 바로 아래에 Lv1~Lv5가 있으니까 이렇게 지정
+sourceSets {
+    main {
+        java {
+            srcDir 'src/'
+        }
+    }
+    test {
+        java {
+            srcDir 'test'  // 나중에 테스트 만들면 여기 쓰면 됨 (없으면 무시)
+        }
+    }
+}
+tasks.register('runServer8080', JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'Lv7_Distributed_Chat_System.DistributedChatSystemApp'
+    args = []
+    systemProperty "server.port", "8080"
+}
+
+tasks.register('runServer8081', JavaExec) {
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'Lv7_Distributed_Chat_System.DistributedChatSystemApp'
+    args = []
+    systemProperty "server.port", "8081"
+}
