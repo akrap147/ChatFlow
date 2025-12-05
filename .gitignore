@@ -1,4 +1,6 @@
 ### IntelliJ IDEA ###
+.idea/
+*.iml
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
@@ -28,4 +30,74 @@ bin/
 ### Mac OS ###
 .DS_Store
 
-.idea*.iml
+# ===================================================
+# Gradle
+# ===================================================
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+
+# Gradle local build cache
+.gradle/
+
+# Kotlin/Java compilation
+*.class
+*.jar
+*.war
+*.ear
+*.javadoc
+hs_err_pid*
+replay_pid*
+
+# ===================================================
+# Spring Boot
+# ===================================================
+# Embedded server logs, tmp files
+*.log
+logs/
+tmp/
+*.pid
+*.pid.lock
+
+# Application properties variants
+application-*.yml
+application-*.yaml
+application-*.properties
+!src/main/resources/application.properties
+
+# ===================================================
+# OS
+# ===================================================
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ===================================================
+# Test / Reports
+# ===================================================
+/test-output/
+/target/
+/build-reports/
+reports/
+
+# ===================================================
+# Node / Web
+# ===================================================
+node_modules/
+dist/
+*.tsbuildinfo
+
+# ===================================================
+# Project-specific ignores (Java)
+# ===================================================
+*.class
+*.hprof
+*.swp
+*.swo
+*.orig
+
+# ===================================================
+# JetBrains Fleet
+# ===================================================
+.fleet/
